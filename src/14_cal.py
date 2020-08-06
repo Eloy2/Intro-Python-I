@@ -30,3 +30,17 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+arr = [*sys.argv]
+
+currentMonth = datetime.now().month
+currentYear = datetime.now().year
+
+if len(arr) == 1:
+    print(calendar.month(currentYear, currentMonth))
+elif len(arr) == 2:
+    print(calendar.month(currentYear, int(arr[1])))
+elif len(arr) == 3:
+    print(calendar.month(int(arr[2]), int(arr[1])))
+else:
+    print("You must input your arguments like this: \nfile_name.py MM YEAR\nOR\nfile_name.py M YEAR\nExample: my_file.py 04 2017")
